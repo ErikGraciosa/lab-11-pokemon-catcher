@@ -1,4 +1,12 @@
 import { generateThreeUniqueNumbers } from './functions.js';
+const turnNumber = document.getElementById('turn-number');
+const statesLeft = document.getElementById('states-left');
+const statesRight = document.getElementById('states-right');
+
+
+
+
+
 
 generateThreeUniqueNumbers();
 // import functions and grab DOM elements
