@@ -23,7 +23,7 @@ export function generateThreeUniqueNumbers() {
 }
 
 
-function findById(array, id) {
+export function findById(array, id) {
     let objectFound = null;
     for (let i = 0; i < array.length; i++) {
         if (array[i].id === id) {
@@ -130,7 +130,7 @@ function buildCard(pokedexID) {
 
 
 //Local Storage functions
-function getFromLocalStorage(key) {
+export function getFromLocalStorage(key) {
     // remember, we need to parse any values get from local storage
     const savedData = localStorage.getItem(key);
     const savedDataParsed = JSON.parse(savedData);
@@ -143,4 +143,11 @@ function setInLocalStorage(key, value) {
     // remember, we need to stringify any values we want to set into local storage
     const dataAsString = JSON.stringify(value);    
     localStorage.setItem(key, dataAsString);
+}
+
+
+//Reset game
+export function playAgain() {
+    localStorage.clear();
+    window.location.href = '../';
 }

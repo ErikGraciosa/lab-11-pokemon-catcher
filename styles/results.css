@@ -79,6 +79,7 @@ footer {
 ul {
     display: inline;
     border: solid black 2px;
+    width: auto;
 }
 
 h2 {
