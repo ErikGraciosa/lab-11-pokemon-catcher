@@ -10,6 +10,7 @@ const buttonReset = document.getElementById('button-reset');
 
 // initialize state
 //init the pokemon list, init the number of pokemon caught, any kinf of init for formatting of the pictures?
+localStorage.clear();
 refreshCards();
 
 // set event listeners to update state and DOM

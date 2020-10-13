@@ -8,7 +8,7 @@ const numberOfTurns = 'numberOfTurns';
 const maxTurns = 10;
 
 function randomNumber() {
-    const lengthOfPokedex = 14;
+    const lengthOfPokedex = pokedex.length;
     return Math.floor(Math.random() * lengthOfPokedex);
 }
 
@@ -63,6 +63,7 @@ export function refreshCards() {
     }
     //Add update to html tags here with times encountered
     //
+    
     //
     //
     //
@@ -111,7 +112,8 @@ function buildCard(pokedexID) {
             window.location.href = './results';
         }
         //Update the page with captures listed
-
+        const pokemonCaught = document.getElementById('pokemon-caught');
+        pokemonCaught.textContent = `You have caught ${turnCounter} pokemon!`;
 
 
 
