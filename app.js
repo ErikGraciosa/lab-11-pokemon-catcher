@@ -5,6 +5,7 @@ import { refreshCards } from '../functions.js';
 const turnNumber = document.getElementById('turn-number');
 const statesLeft = document.getElementById('states-left');
 const statesRight = document.getElementById('states-right');
+const buttonReset = document.getElementById('button-reset');
 
 
 // initialize state
@@ -13,7 +14,9 @@ refreshCards();
 
 // set event listeners to update state and DOM
 //Event listener for change of state on the radio button
-
+buttonReset.addEventListener('click', () => {
+    console.log('reset click');
+});
 
 
 //Code to update states, will need generation of list item for each pokemon and also an update to state for that particular pokemon.
