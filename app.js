@@ -15,9 +15,8 @@ const cardmat = document.getElementById('cardmat');
 // initialize state
 //init the pokemon list, init the number of pokemon caught, any kinf of init for formatting of the pictures?
 
-const threeNewCards = generateThreeUniqueNumbers();
-console.log(threeNewCards);
-console.log(threeNewCards[0]);
+
+
 
 // set event listeners to update state and DOM
 //Event listener for change of state on the radio button
@@ -58,9 +57,30 @@ function buildCard(pokedexID) {
 }
 
 
-const cardsToDeal = [pokedex[0], pokedex[1], pokedex[2]];
-console.log(cardsToDeal);
+//Dynamic Draw
+const threeNewCards = generateThreeUniqueNumbers();
 
+
+//Feed this the pokedex and the id to get the pokedox object
+function findById(array, id) {
+    let objectFound = null;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id === id) {
+            objectFound = array[i];
+        }    
+    }
+    return objectFound;
+}
+
+
+//Generate the individual cards
+const cardOne = findById(pokedex, threeNewCards[0]);
+const cardTwo = findById(pokedex, threeNewCards[1]);
+const cardThree = findById(pokedex, threeNewCards[2]);
+
+
+//Build array to feed into for loop, this can be refactored with above to generate the card in the for loop.
+const cardsToDeal = [cardOne, cardTwo, cardThree];
 for (let i = 0; i < cardsToDeal.length; i++) {
     const onePokemonCard = buildCard(cardsToDeal[i]);
     cardmat.appendChild(onePokemonCard);

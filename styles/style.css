@@ -69,6 +69,16 @@ img {
     width: 300px;
 }
 
+label {
+    border: solid blue 3px;
+    margin: 5px;
+    ;
+}
+
+h2 {
+    text-align: center;
+}
+
 nav {
     position: absolute;
     top: 50px;

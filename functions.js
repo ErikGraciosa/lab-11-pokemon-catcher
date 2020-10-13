@@ -2,7 +2,7 @@
 
 
 function randomNumber() {
-    const lengthOfPokedex = 15;
+    const lengthOfPokedex = 14;
     return Math.floor(Math.random() * lengthOfPokedex);
 }
 

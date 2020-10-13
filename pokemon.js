@@ -6,7 +6,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd17",
     "pokemon": "bulbasaur",
-    "id": 1,
+    "id": 0,
     "species_id": 1,
     "height": 7,
     "weight": 69,
@@ -39,7 +39,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd19",
     "pokemon": "ivysaur",
-    "id": 2,
+    "id": 1,
     "species_id": 2,
     "height": 10,
     "weight": 130,
@@ -72,7 +72,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd1a",
     "pokemon": "charmander",
-    "id": 3,
+    "id": 2,
     "species_id": 4,
     "height": 6,
     "weight": 85,
@@ -105,7 +105,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd1b",
     "pokemon": "charmeleon",
-    "id": 4,
+    "id": 3,
     "species_id": 5,
     "height": 11,
     "weight": 190,
@@ -138,7 +138,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd1c",
     "pokemon": "charizard",
-    "id": 5,
+    "id": 4,
     "species_id": 6,
     "height": 17,
     "weight": 905,
@@ -171,7 +171,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd1f",
     "pokemon": "squirtle",
-    "id": 6,
+    "id": 5,
     "species_id": 7,
     "height": 5,
     "weight": 90,
@@ -204,7 +204,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd20",
     "pokemon": "wartortle",
-    "id": 7,
+    "id": 6,
     "species_id": 8,
     "height": 10,
     "weight": 225,
@@ -237,7 +237,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd21",
     "pokemon": "blastoise",
-    "id": 8,
+    "id": 7,
     "species_id": 9,
     "height": 16,
     "weight": 855,
@@ -270,7 +270,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd23",
     "pokemon": "caterpie",
-    "id": 9,
+    "id": 8,
     "species_id": 10,
     "height": 3,
     "weight": 29,
@@ -303,7 +303,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd24",
     "pokemon": "metapod",
-    "id": 10,
+    "id": 9,
     "species_id": 11,
     "height": 7,
     "weight": 99,
@@ -336,7 +336,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd25",
     "pokemon": "beedrill",
-    "id": 11,
+    "id": 10,
     "species_id": 15,
     "height": 10,
     "weight": 295,
@@ -369,7 +369,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd26",
     "pokemon": "weedle",
-    "id": 12,
+    "id": 11,
     "species_id": 13,
     "height": 3,
     "weight": 32,
@@ -402,7 +402,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd27",
     "pokemon": "kakuna",
-    "id": 13,
+    "id": 12,
     "species_id": 14,
     "height": 6,
     "weight": 100,
@@ -435,7 +435,7 @@ export const pokedex = [
     {
     "_id": "5cef3501ef6005a77cd4fd29",
     "pokemon": "pidgey",
-    "id": 14,
+    "id": 13,
     "species_id": 16,
     "height": 3,
     "weight": 18,
