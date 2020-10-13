@@ -66,6 +66,15 @@ footer {
     box-shadow: var(--shadow);
 }
 
+.state-status {
+    display: flex;
+}
+
+ul {
+    display: inline;
+    border: solid black 2px;
+}
+
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
