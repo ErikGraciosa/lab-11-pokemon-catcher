@@ -59,26 +59,6 @@ header {
     box-shadow: var(--shadow);
 }
 
-#cardmat {
-    display: inline-flex;
-    border: solid black 3px;;
-}
-
-img {
-    height: 300px;
-    width: 300px;
-}
-
-label {
-    border: solid blue 3px;
-    margin: 5px;
-    ;
-}
-
-h2 {
-    text-align: center;
-}
-
 nav {
     position: absolute;
     top: 50px;
