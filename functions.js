@@ -4,7 +4,8 @@ import { pokedex } from './pokemon.js';
 
 //DOM
 const encountersInStorage = 'encountersInStorage';
-
+const numberOfTurns = 'numberOfTurns';
+const maxTurns = 10;
 
 function randomNumber() {
     const lengthOfPokedex = 14;
@@ -60,7 +61,7 @@ export function refreshCards() {
             isInLocalEncounters.encounters++;
         }
     }
-    //Add update to html tags here
+    //Add update to html tags here with times encountered
     //
     //
     //
@@ -99,6 +100,22 @@ function buildCard(pokedexID) {
         }
         setInLocalStorage(encountersInStorage, localEncounters);
         
+        //turn Counter
+        let turnCounter = getFromLocalStorage(numberOfTurns) || [];
+        if (turnCounter < maxTurns - 1) {
+            turnCounter++;
+            setInLocalStorage(numberOfTurns, turnCounter);
+        } else {
+            turnCounter++;
+            setInLocalStorage(numberOfTurns, turnCounter);
+            window.location.href = './results';
+        }
+        //Update the page with captures listed
+
+
+
+
+
         //Removes the html tags before the refresh or else appends and more than 3 cards shown.
         const pokeid = document.querySelectorAll('label');
         for (let i = 0; i < pokeid.length; i++) {
@@ -106,7 +123,6 @@ function buildCard(pokedexID) {
         }
         refreshCards();
     });
-
     return labelOne;
 }
 

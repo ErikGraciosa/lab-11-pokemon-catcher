@@ -15,7 +15,8 @@ refreshCards();
 // set event listeners to update state and DOM
 //Event listener for change of state on the radio button
 buttonReset.addEventListener('click', () => {
-    console.log('reset click');
+    localStorage.clear();
+    location.reload();
 });
 
 
