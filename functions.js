@@ -44,7 +44,7 @@ export function refreshCards() {
     }
     //Grab the id's of the cards delt
     const labels = document.querySelectorAll('label');
-    console.log(labels[0].id);
+    
     //Update encountered state
     const localEncounters = getFromLocalStorage(encountersInStorage) || [];
     for (let j = 0; j < labels.length; j++) {
@@ -60,8 +60,13 @@ export function refreshCards() {
             isInLocalEncounters.encounters++;
         }
     }
+    //Add update to html tags here
+    //
+    //
+    //
+    //
+    //
     setInLocalStorage(encountersInStorage, localEncounters);
-
 }
 
 
@@ -85,9 +90,17 @@ function buildCard(pokedexID) {
 
     //Will need eventlistener here to detect click or change state of radio button
     inputOne.addEventListener('change', () => {
-        const pokeid = document.querySelectorAll('label');
         //Update captured state here on click
+        const localEncounters = getFromLocalStorage(encountersInStorage);
+        for (let i = 0; i < localEncounters.length; i++) {
+            if (localEncounters[i].id === labelOne.id) {
+                localEncounters[i].captures++;
+            }
+        }
+        setInLocalStorage(encountersInStorage, localEncounters);
         
+        //Removes the html tags before the refresh or else appends and more than 3 cards shown.
+        const pokeid = document.querySelectorAll('label');
         for (let i = 0; i < pokeid.length; i++) {
             pokeid[i].remove();
         }
