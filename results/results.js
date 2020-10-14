@@ -32,8 +32,9 @@ for (let i = 0; i < localEncounters.length; i++) {
 
 //Need click handler to go back to main page and play again
 allTimeSessions();
-playAgainButton.addEventListener('click', playAgain);
-
+playAgainButton.addEventListener('click', () => {
+    window.location.href = '../';
+});
 
 
 

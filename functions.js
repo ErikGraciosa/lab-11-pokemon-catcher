@@ -117,6 +117,7 @@ function buildCard(pokedexID) {
             setInLocalStorage(numberOfTurns, turnCounter);
             window.location.href = './results';
         }
+
         //Update the page with captures listed
         const pokemonCaught = document.getElementById('pokemon-caught');
         pokemonCaught.textContent = `You have caught ${turnCounter} pokemon!`;
@@ -151,6 +152,7 @@ function setInLocalStorage(key, value) {
 
 //Reset game
 export function playAgain() {
+    allTimeSessions();
     localStorage.removeItem(encountersInStorage);
     localStorage.removeItem(numberOfTurns);
     window.location.href = '../';
@@ -160,7 +162,6 @@ export function playAgain() {
 export function allTimeSessions() {
     const allTimeSessionsData = getFromLocalStorage(allTimeSessionsDataLS) || [];
     const singleGameData = getFromLocalStorage(encountersInStorage) || [];
-    console.log('does this run');
     allTimeSessionsData.push(singleGameData);
 
     setInLocalStorage(allTimeSessionsDataLS, allTimeSessionsData);

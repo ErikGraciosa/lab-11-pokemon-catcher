@@ -1,62 +1,78 @@
-import { playAgain, getFromLocalStorage, findById } from '../functions.js';
+import { getFromLocalStorage, findById } from '../functions.js';
 import { pokedex } from '../pokemon.js';
 
 const playAgainButton = document.getElementById('play-again');
 const results = document.getElementById('results');
-
-//Add results page here
-//Will need to generate html tags
+const allTimeSessionsDataLS = 'allTimeSessionsDataLS';
 
 
+//Need click handler to go back to main page and play again
+playAgainButton.addEventListener('click', () => {
+    window.location.href = '../';
+});
 
-const encountersInStorage = 'encountersInStorage';
-const localEncounters = getFromLocalStorage(encountersInStorage) || 'No pokemon caught';
+//Chart data build
+const allTimePokemon = [];
+const allTimeEncounters = [];
+const allTimeCaptures = [];
+const allTimeLabels = [];
+const allTimeSessionsData = getFromLocalStorage(allTimeSessionsDataLS);
+
+
+//Build pokemon array
+for (let i = 0; i < pokedex.length; i++) {
+    allTimePokemon.push({ id: pokedex[i].id,
+        name: pokedex[i].pokemon,
+        encounters: 0,
+        captures: 0,
+    });      
+}
+
+
+//Add all encounters and captures to pokemon array
+for (let i = 0; i < allTimeSessionsData.length; i++) {
+    for (let j = 0; j < allTimeSessionsData[i].length; j++) {
+        for (let k = 0; k < allTimePokemon.length; k++) {
+            if (Number(allTimePokemon[k].id) === Number(allTimeSessionsData[i][j].id)) {
+                allTimePokemon[k].captures += allTimeSessionsData[i][j].captures;
+                allTimePokemon[k].encounters += allTimeSessionsData[i][j].encounters;
+            }
+        }
+    }
+}
+
+
+//Build arrays for chart
+for (let i = 0; i < allTimePokemon.length; i++) {
+    allTimeLabels.push(allTimePokemon[i].name);
+    allTimeEncounters.push(allTimePokemon[i].encounters);
+    allTimeCaptures.push(allTimePokemon[i].captures);
+}
 
 
 //For loop for each index to build the tags and display on page.
-for (let i = 0; i < localEncounters.length; i++) {
-    
-    const singlePokemon = findById(pokedex, Number(localEncounters[i].id));
-    
-
+for (let i = 0; i < allTimePokemon.length; i++) {
+    const singlePokemon = findById(pokedex, Number(allTimePokemon[i].id));
     const li = document.createElement('li');
     const spanEncounter = document.createElement('span');
     const spanCaptured = document.createElement('span');
 
     li.textContent = singlePokemon.pokemon + ' encountered ';
-    spanEncounter.textContent = localEncounters[i].encounters + ' time(s), and caught ';
-    spanCaptured.textContent = localEncounters[i].captures + ' time(s).';
+    spanEncounter.textContent = allTimePokemon[i].encounters + ' time(s), and caught ';
+    spanCaptured.textContent = allTimePokemon[i].captures + ' time(s).';
     li.append(spanEncounter, spanCaptured);
     results.append(li);
 }
-
-//Need click handler to go back to main page and play again
-
-playAgainButton.addEventListener('click', playAgain);
-
-//Chart data build
-const labelsArray = [];
-const dataArrayEncounters = [];
-const dataArrayCaptures = [];
-for (let i = 0; i < localEncounters.length; i++) {
-    const singlePokemon = findById(pokedex, Number(localEncounters[i].id));    
-    
-    labelsArray.push(singlePokemon.pokemon);
-    dataArrayEncounters.push(localEncounters[i].encounters);
-    dataArrayCaptures.push(localEncounters[i].captures);
-}
-
-
 
 //Chart paste
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {  // eslint-disable-line
     type: 'bar',
     data: {
-        labels: labelsArray,
+        labels: allTimeLabels,
         datasets: [{
             label: '# of Encounters',
-            data: dataArrayEncounters,
+            data: allTimeEncounters,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.5)',
                 'rgba(54, 162, 235, 0.5)',
@@ -71,6 +87,7 @@ var myChart = new Chart(ctx, {  // eslint-disable-line
                 'rgba(153, 102, 255, 0.5)',
                 'rgba(255, 159, 64, 0.5)',
                 'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
             ],
             borderColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -86,11 +103,12 @@ var myChart = new Chart(ctx, {  // eslint-disable-line
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
                 'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
             ],
             borderWidth: 1
         }, {
             label: '# of Catches',
-            data: dataArrayCaptures,
+            data: allTimeCaptures,
             backgroundColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -105,8 +123,10 @@ var myChart = new Chart(ctx, {  // eslint-disable-line
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)',
                 'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
             ],
             borderColor: [
+                'black',
                 'black',
                 'black',
                 'black',
