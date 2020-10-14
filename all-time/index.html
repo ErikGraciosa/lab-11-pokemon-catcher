@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/results.css">
+    <link rel="stylesheet" href="../styles/all-time.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <title>Pokemon World.</title>
 </head>
 
@@ -19,28 +20,34 @@
             <a href=".././all-time">All-time</a> |
         </nav> 
         <div class="main-header">
-            Welcome to pokemon world.
+            WELCOME TO POKEMON WORLD.
         </div>
     </header>
     <main>
-        <section class="main-section">
-            <div></div>
+        <h2>ALLTIME</h2>
+        <section class="main-section">            
+            <div class="chart">
+                Stacked Bar Graph
+                <canvas id="myChart" width="800" height="800"></canvas>
+            </div>
             <div class="state-status">
                 <ul id="results">
-                    <li>Total pokemon caught by type:</li>
-                    
+                    <li>Total pokemon caught by type ALL TIME:</li>
                 </ul>
             </div>
-            <div class="cardmat">
+            <div class="chart">
+                <div>Stacked Pie Chart | % of times caught in center | % of times encountered in outer</div>
+                <canvas id="pie-chart" width="800" height="800"></canvas>
             </div>
-            <button id="play-again">Play Again!</button>
         </section>
+        <button id="play-again">Play Again!</button>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2020 Alchemy Code Lab</div>
     </footer>
 
-    <script type="module" src="results.js"></script>
+    <script type="module" src="all-time.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </body>
 
 </html>

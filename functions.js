@@ -1,24 +1,29 @@
-//Create a function that makes three unique random numbers
-
 import { pokedex } from './pokemon.js';
 
 //DOM
 const encountersInStorage = 'encountersInStorage';
 const numberOfTurns = 'numberOfTurns';
 const maxTurns = 10;
+const allTimeSessionsDataLS = 'allTimeSessionsDataLS';
 
 function randomNumber() {
     const lengthOfPokedex = pokedex.length;
     return Math.floor(Math.random() * lengthOfPokedex);
 }
 
+//String for key into local storage
+const arrayRandomNums = 'arrayRandomNums';
 
-export function generateThreeUniqueNumbers() {    
+//Three random numbers function
+export function generateThreeUniqueNumbers() {  
     let array = [randomNumber(), randomNumber(), randomNumber()];
-     
+    
     while ((array[0] === array[1] || array[1] === array[2] || array[0] === array[2]) === true) {
         array = [randomNumber(), randomNumber(), randomNumber()];
     } 
+
+    //Addition of check n-1 random numbers for repeats, not implemented
+    setInLocalStorage(arrayRandomNums, array);
     return array;
 }
 
@@ -62,8 +67,7 @@ export function refreshCards() {
         }
     }
     //Add update to html tags here with times encountered
-    //
-    
+    //    
     //
     //
     //
@@ -101,7 +105,7 @@ function buildCard(pokedexID) {
         }
         setInLocalStorage(encountersInStorage, localEncounters);
         
-        //turn Counter
+        //Turn Counter
         let turnCounter = getFromLocalStorage(numberOfTurns) || [];
         if (turnCounter < maxTurns - 1) {
             turnCounter++;
@@ -111,12 +115,10 @@ function buildCard(pokedexID) {
             setInLocalStorage(numberOfTurns, turnCounter);
             window.location.href = './results';
         }
+
         //Update the page with captures listed
         const pokemonCaught = document.getElementById('pokemon-caught');
         pokemonCaught.textContent = `You have caught ${turnCounter} pokemon!`;
-
-
-
 
         //Removes the html tags before the refresh or else appends and more than 3 cards shown.
         const pokeid = document.querySelectorAll('label');
@@ -148,6 +150,17 @@ function setInLocalStorage(key, value) {
 
 //Reset game
 export function playAgain() {
-    localStorage.clear();
+    allTimeSessions();
+    localStorage.removeItem(encountersInStorage);
+    localStorage.removeItem(numberOfTurns);
     window.location.href = '../';
+}
+
+//Function to grab single game local storage and put into alltime
+export function allTimeSessions() {
+    const allTimeSessionsData = getFromLocalStorage(allTimeSessionsDataLS) || [];
+    const singleGameData = getFromLocalStorage(encountersInStorage) || [];
+    allTimeSessionsData.push(singleGameData);
+
+    setInLocalStorage(allTimeSessionsDataLS, allTimeSessionsData);
 }
