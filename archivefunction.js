@@ -1,6 +1,4 @@
 //Create a function that makes three unique random numbers
-
-
 function randomNumber() {
     const lengthOfPokedex = 15;
     return Math.floor(Math.random() * lengthOfPokedex);
@@ -28,4 +26,3 @@ export function generateThreeUniqueNumbersArchive() {
     }
     
 }
-
