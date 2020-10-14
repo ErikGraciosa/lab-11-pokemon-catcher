@@ -1,4 +1,4 @@
-import { refreshCards, playAgain } from '../functions.js';
+import { refreshCards, playAgain } from './functions.js';
 
 //Grab the reset button, set variables for localstorage names
 const buttonReset = document.getElementById('button-reset');
