@@ -153,7 +153,7 @@ export function playAgain() {
     allTimeSessions();
     localStorage.removeItem(encountersInStorage);
     localStorage.removeItem(numberOfTurns);
-    window.location.href = '../';
+    window.location.href = './';
 }
 
 //Function to grab single game local storage and put into alltime
