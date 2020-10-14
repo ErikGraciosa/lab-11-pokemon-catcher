@@ -44,7 +44,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: var(--gutter);
+    padding-top: 0;
     padding-bottom: var(--gutter);
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
@@ -53,7 +53,6 @@ section {
 
 header {
     display: flex;
-    
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
@@ -72,7 +71,6 @@ img {
 label {
     border: solid blue 3px;
     margin: 5px;
-    ;
 }
 
 h2 {
@@ -92,18 +90,26 @@ footer {
     box-shadow: var(--shadow);
 }
 
-.state-status {
+.state-status, .state-info, #pokemon-caught {
     display: flex;
 }
 
 ul {
     display: inline;
-    border: solid black 2px;
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
+}
+
+span {
+    text-align: center;
+    margin: auto;
+}
+
+button {
+    margin-top: 20px;
 }
 
 .gutter-right {
@@ -121,6 +127,7 @@ header img {
 .main-header {
     text-align: center;
     width: auto;
+    margin: auto;
 }
 
 content {

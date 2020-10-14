@@ -17,6 +17,7 @@
         <nav>
             | <a href="/">Home</a> |
             <a href="./results">Results</a> |
+            <a href="./all-time">All-time</a> |
         </nav> 
         <div class="main-header">
             Welcome to pokemon world.
@@ -24,19 +25,11 @@
     </header>
     <main>
         <section class="main-section">
-            <div>Choose a pokemon</div>
-            <div class="state-status">
-                <ul id="states-left">
-                    <li>Turn # <span id="turn-number"></span></li>
-                    
-                    <li>Placeholder<span></span></li>
-                </ul>
-                <ul id="states-right">
-                    <li>Total pokemon caught by type:</li>
-                    <li>Pikachu</li>
-                    <li>List all here</li>
-                </ul>
+            <div>
+                Three wild pokemon appear! Click a pokemon to capture!
             </div>
+            <div id="pokemon-caught">--------------                
+            </div>        
             <div id="cardmat">
                 <!-- <label>
                     <h2>Name</h2>
@@ -54,7 +47,11 @@
                     <img src="http://www.placecage.com/300/300/" />
                 </label> -->
             </div>
-            <button>RESET GAME</button>
+            <button id="button-reset">RESET GAME</button>
+            <div class="state-status">
+                <ul id="states-right">
+                </ul>
+            </div>
         </section>
     </main>
     <footer>
