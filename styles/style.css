@@ -96,7 +96,6 @@ footer {
 
 ul {
     display: inline;
-    border: solid black 2px;
 }
 
 h2 {
@@ -107,6 +106,10 @@ h2 {
 span {
     text-align: center;
     margin: auto;
+}
+
+button {
+    margin-top: 20px;
 }
 
 .gutter-right {
