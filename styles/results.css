@@ -103,6 +103,8 @@ header img {
 }
 
 .main-header {
+    font-size: 40pt;
+    font-family: 'Oswald', sans-serif;
     text-align: center;
     width: auto;
     margin: auto;
