@@ -1,4 +1,4 @@
-import { playAgain, getFromLocalStorage, findById, allTimeSessions } from '../functions.js';
+import { playAgain, getFromLocalStorage, findById } from '../functions.js';
 import { pokedex } from '../pokemon.js';
 
 const playAgainButton = document.getElementById('play-again');
@@ -31,11 +31,8 @@ for (let i = 0; i < localEncounters.length; i++) {
 }
 
 //Need click handler to go back to main page and play again
-allTimeSessions();
+
 playAgainButton.addEventListener('click', playAgain);
-
-
-
 
 //Chart data build
 const labelsArray = [];

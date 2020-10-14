@@ -6,11 +6,13 @@ const turnNumber = document.getElementById('turn-number');
 const statesLeft = document.getElementById('states-left');
 const statesRight = document.getElementById('states-right');
 const buttonReset = document.getElementById('button-reset');
-
+const encountersInStorage = 'encountersInStorage';
+const numberOfTurns = 'numberOfTurns';
 
 // initialize state
 //init the pokemon list, init the number of pokemon caught, any kinf of init for formatting of the pictures?
-localStorage.clear();
+localStorage.removeItem(encountersInStorage);
+localStorage.removeItem(numberOfTurns);
 refreshCards();
 
 // set event listeners to update state and DOM
