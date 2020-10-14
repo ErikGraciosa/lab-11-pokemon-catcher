@@ -1,5 +1,3 @@
-//Create a function that makes three unique random numbers
-
 import { pokedex } from './pokemon.js';
 
 //DOM
@@ -16,14 +14,15 @@ function randomNumber() {
 //String for key into local storage
 const arrayRandomNums = 'arrayRandomNums';
 
+//Three random numbers function
 export function generateThreeUniqueNumbers() {  
     let array = [randomNumber(), randomNumber(), randomNumber()];
-    //Addition of check n-1 random numbers for repeats
     
     while ((array[0] === array[1] || array[1] === array[2] || array[0] === array[2]) === true) {
         array = [randomNumber(), randomNumber(), randomNumber()];
     } 
-    
+
+    //Addition of check n-1 random numbers for repeats, not implemented
     setInLocalStorage(arrayRandomNums, array);
     return array;
 }
@@ -68,8 +67,7 @@ export function refreshCards() {
         }
     }
     //Add update to html tags here with times encountered
-    //
-    
+    //    
     //
     //
     //
@@ -107,7 +105,7 @@ function buildCard(pokedexID) {
         }
         setInLocalStorage(encountersInStorage, localEncounters);
         
-        //turn Counter
+        //Turn Counter
         let turnCounter = getFromLocalStorage(numberOfTurns) || [];
         if (turnCounter < maxTurns - 1) {
             turnCounter++;
