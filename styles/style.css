@@ -57,6 +57,7 @@ header {
 #cardmat {
     display: inline-flex;
     border: solid black 3px;
+    margin-top: 10px;
 }
 
 
@@ -94,6 +95,11 @@ ul {
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
+    font-family: 'Staatliches', cursive;
+}
+
+label{
+    font-family: 'Staatliches', cursive;
 }
 
 #div0, #div1, #div2, span {
@@ -162,3 +168,8 @@ footer {
     }
 
   }
+
+  @font-face {
+    font-family: instruction;
+    src: url('../assets/Instruction-PAa2.ttf');
+}

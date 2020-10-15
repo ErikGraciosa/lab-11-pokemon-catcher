@@ -16,9 +16,9 @@ for (let i = 0; i < localEncounters.length; i++) {
     const spanEncounter = document.createElement('span');
     const spanCaptured = document.createElement('span');
 
-    li.textContent = singlePokemon.pokemon + ' encountered ';
-    spanEncounter.textContent = localEncounters[i].encounters + ' time(s), and caught ';
-    spanCaptured.textContent = localEncounters[i].captures + ' time(s).';
+    li.textContent = `${singlePokemon.pokemon.toUpperCase()}: ${localEncounters[i].encounters} encounter(s); ${localEncounters[i].captures} capture(s).`;
+    // spanEncounter.textContent = localEncounters[i].encounters + ' time(s), and caught ';
+    // spanCaptured.textContent = localEncounters[i].captures + ' time(s).';
     li.append(spanEncounter, spanCaptured);
     results.append(li);
 }

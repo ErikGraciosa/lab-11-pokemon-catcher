@@ -78,8 +78,12 @@ ul {
     width: auto;
 }
 
+li {
+    font-family: instruction;
+}
+
 h2 {
-    font-size: 1.8rem;
+    font-size: 40pt;
     font-weight: bold;
 }
 
@@ -140,3 +144,8 @@ footer {
     }
 
   }
+
+  @font-face {
+    font-family: instruction;
+    src: url('../assets/Instruction-PAa2.ttf');
+}
