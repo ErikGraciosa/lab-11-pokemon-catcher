@@ -44,7 +44,7 @@ export function refreshCards() {
     const cardmat = document.getElementById('cardmat');
     for (let i = 0; i < threeNewCards.length; i++) {
         const cardToDeal = findById(pokedex, threeNewCards[i]);
-        const onePokemonCard = buildCard(cardToDeal);
+        const onePokemonCard = buildCard(cardToDeal, i);
         
         cardmat.appendChild(onePokemonCard);
     }
@@ -66,8 +66,21 @@ export function refreshCards() {
             isInLocalEncounters.encounters++;
         }
     }
-    //Add update to html tags here with times encountered
-    //    
+    //Add update to html tags here with times encountered to div0, div1, div2
+    //
+    console.log(labels);
+    //Compare present labels to the localEncounters to retrieve encounters and captures
+    for (let k = 0; k < labels.length; k++) {
+        const divName = 'div' + k;
+        console.log(divName);
+        const card = document.getElementById(divName);
+        for (let z = 0; z < localEncounters.length; z++) {
+            if (localEncounters[z].id === labels[k].id) {
+                card.textContent = `${localEncounters[z].captures} capture(s), ${localEncounters[z].encounters} encounter(s).`;
+            }
+        
+        }
+    }
     //
     //
     //
@@ -76,12 +89,15 @@ export function refreshCards() {
 }
 
 
-function buildCard(pokedexID) {
+function buildCard(pokedexID, index) {
     //Create the tags
     const labelOne = document.createElement('label');
     const inputOne = document.createElement('input');
     const imgOne = document.createElement('img');
     const nameOne = document.createElement('h2');
+    const timesEncountered = document.createElement('div');
+    
+    const divName = 'div' + index;
 
     //Updates to properties
     labelOne.setAttribute('id', pokedexID.id);
@@ -91,8 +107,11 @@ function buildCard(pokedexID) {
     inputOne.setAttribute('hidden', '');
     nameOne.textContent = (pokedexID.pokemon);
 
+    //Placeholder for text content after local storage grabbed to update with enc/capture.
+    timesEncountered.setAttribute('id', divName);
+    
     //Appends to html
-    labelOne.append(nameOne, inputOne, imgOne);
+    labelOne.append(nameOne, inputOne, imgOne, timesEncountered);
 
     //Will need eventlistener here to detect click or change state of radio button
     inputOne.addEventListener('change', () => {

@@ -103,7 +103,7 @@ h2 {
     font-weight: bold;
 }
 
-span {
+#div0, #div1, #div2, span {
     text-align: center;
     margin: auto;
 }
