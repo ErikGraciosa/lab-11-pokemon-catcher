@@ -6,19 +6,6 @@ body {
     --color4: #ffffff;
     --color5: #ffffff;
 
-    /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
-    /* --color1: hsla(349, 69%, 76%, 1);
-    --color2: hsla(207, 67%, 44%, 1);
-    --color3: hsla(200, 61%, 56%, 1);
-    --color4: hsla(187, 41%, 94%, 1);
-    --color5: hsla(170, 28%, 95%, 1); */
-
-    /* --color1: hsla(45, 86%, 83%, 1);
-    --color2: hsla(135, 65%, 98%, 1);
-    --color3: hsla(315, 37%, 86%, 1);
-    --color4: hsla(45, 73%, 98%, 1);
-    --color5: hsla(224, 40%, 79%, 1); */
-    
     --header-height: 80px;
     --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
     --gutter: 30px;
@@ -26,6 +13,15 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-image: url(../assets/profedge.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+img {
+    height: 300px;
+    width: 300px;
 }
 
 main {
@@ -60,13 +56,11 @@ header {
 
 #cardmat {
     display: inline-flex;
-    border: solid black 3px;;
+    border: solid black 3px;
+    margin-top: 10px;
 }
 
-img {
-    height: 300px;
-    width: 300px;
-}
+
 
 label {
     border: solid blue 3px;
@@ -101,9 +95,14 @@ ul {
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
+    font-family: 'Staatliches', cursive;
 }
 
-span {
+label{
+    font-family: 'Staatliches', cursive;
+}
+
+#div0, #div1, #div2, span {
     text-align: center;
     margin: auto;
 }
@@ -169,3 +168,8 @@ footer {
     }
 
   }
+
+  @font-face {
+    font-family: instruction;
+    src: url('../assets/Instruction-PAa2.ttf');
+}
