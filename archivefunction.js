@@ -24,5 +24,4 @@ export function generateThreeUniqueNumbersArchive() {
         console.log('the weird object ' + weirdObject);
         return weirdObject;
     }
-    
 }

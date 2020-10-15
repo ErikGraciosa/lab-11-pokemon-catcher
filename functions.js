@@ -7,8 +7,25 @@ const maxTurns = 10;
 const allTimeSessionsDataLS = 'allTimeSessionsDataLS';
 
 function randomNumber() {
-    const lengthOfPokedex = pokedex.length;
-    return Math.floor(Math.random() * lengthOfPokedex);
+    //Pull in previous random numbers and remove from set of numbers to pull from, genererate random number to pull by index from the restricted array of numbers.
+    const oldRandoms = getFromLocalStorage('arrayRandomNums') || [];
+    const startingLengthArray = [];
+
+    pokedex.forEach((index) => {
+        startingLengthArray.push(index.id);
+    });
+
+    for (let i = 0; i < oldRandoms.length; i++) {
+        for (let j = 0; j < startingLengthArray.length; j++) {
+            if (oldRandoms[i] === startingLengthArray[j]) {
+                
+                startingLengthArray.splice(j, 1);
+            }
+        }
+    }
+    
+    const indexToReturn = Math.floor(Math.random() * startingLengthArray.length);
+    return startingLengthArray[indexToReturn];
 }
 
 //String for key into local storage
@@ -18,13 +35,40 @@ const arrayRandomNums = 'arrayRandomNums';
 export function generateThreeUniqueNumbers() {  
     let array = [randomNumber(), randomNumber(), randomNumber()];
     
+    //Get the previous last random numbers
+    const oldRandoms = getFromLocalStorage(arrayRandomNums);
+    
     while ((array[0] === array[1] || array[1] === array[2] || array[0] === array[2]) === true) {
         array = [randomNumber(), randomNumber(), randomNumber()];
     } 
 
-    //Addition of check n-1 random numbers for repeats, not implemented
+    const booleanArray = [];
+    const sixNumbers = array.concat(oldRandoms);
+    for (let i = 0; i < sixNumbers.length; i++) {
+        for (let j = 0; j < sixNumbers.length; j++) {
+            const booleanCheck = sixNumbers[i] === sixNumbers[j];
+            if (!(i === j)) {
+                booleanArray.push(booleanCheck);
+            }
+        }
+    }
+    
+    const uniqueCheck = checkIfTrue(booleanArray);
+    
+    setInLocalStorage('areSixNumbersUnique', uniqueCheck);
+
     setInLocalStorage(arrayRandomNums, array);
     return array;
+}
+
+//This function will return TRUE if all numbers unique, will return FALSE if numbers not unique
+function checkIfTrue(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === true) {
+            return false;
+        }   
+    }
+    return true;     
 }
 
 
@@ -40,7 +84,8 @@ export function findById(array, id) {
 
 
 export function refreshCards() {
-    const threeNewCards = generateThreeUniqueNumbers();
+    let threeNewCards = generateThreeUniqueNumbers();
+    
     const cardmat = document.getElementById('cardmat');
     for (let i = 0; i < threeNewCards.length; i++) {
         const cardToDeal = findById(pokedex, threeNewCards[i]);
@@ -66,25 +111,17 @@ export function refreshCards() {
             isInLocalEncounters.encounters++;
         }
     }
-    //Add update to html tags here with times encountered to div0, div1, div2
-    //
-    console.log(labels);
+    
     //Compare present labels to the localEncounters to retrieve encounters and captures
     for (let k = 0; k < labels.length; k++) {
-        const divName = 'div' + k;
-        console.log(divName);
+        const divName = 'div' + k;        
         const card = document.getElementById(divName);
         for (let z = 0; z < localEncounters.length; z++) {
             if (localEncounters[z].id === labels[k].id) {
                 card.textContent = `${localEncounters[z].captures} capture(s), ${localEncounters[z].encounters} encounter(s).`;
             }
-        
         }
     }
-    //
-    //
-    //
-    //
     setInLocalStorage(encountersInStorage, localEncounters);
 }
 
