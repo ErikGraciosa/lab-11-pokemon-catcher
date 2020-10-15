@@ -56,11 +56,10 @@ header {
 
 #cardmat {
     display: inline-flex;
+    flex-wrap: wrap;
     border: solid black 3px;
     margin-top: 10px;
 }
-
-
 
 label {
     border: solid blue 3px;
